@@ -96,3 +96,136 @@
     </footer>
 </body>
 </html>
+
+### `about.html`
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Christophryoung Customs</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-black text-white">
+    <!-- Navbar -->
+    <nav class="flex items-center justify-between p-4">
+        <div class="text-xl font-bold">Christophryoung Customs</div>
+        <ul class="flex space-x-6">
+            <li><a href="index.html" class="hover:underline">Home</a></li>
+            <li><a href="about.html" class="hover:underline">About</a></li>
+            <li><a href="shop.php" class="hover:underline">Shop</a></li>
+            <li><a href="contact.php" class="hover:underline">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- About Section -->
+    <section class="py-20 px-10 text-center">
+        <h1 class="text-4xl font-bold">About Us</h1>
+        <p class="mt-4 text-gray-400">At Christophryoung Customs, we believe in crafting personalized and high-quality jewelry to match your unique style. Our designs are a blend of modern elegance and timeless craftsmanship.</p>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 p-4 text-center">
+        <p class="text-gray-400">&copy; 2025 Christophryoung Customs. All rights reserved.</p>
+    </footer>
+</body>
+</html>
+
+### `shop.php`
+<?php
+$products = [
+    ["name" => "Titanium Ring", "description" => "Crafted with precision and elegance, perfect for every occasion.", "image" => "https://via.placeholder.com/300"],
+    ["name" => "Custom Pendant", "description" => "Personalized designs to suit your unique style.", "image" => "https://via.placeholder.com/300"],
+    ["name" => "Richard Mille Replica", "description" => "Meticulously designed luxury replicas with a modern touch.", "image" => "https://via.placeholder.com/300"]
+];
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop - Christophryoung Customs</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-black text-white">
+    <!-- Navbar -->
+    <nav class="flex items-center justify-between p-4">
+        <div class="text-xl font-bold">Christophryoung Customs</div>
+        <ul class="flex space-x-6">
+            <li><a href="index.html" class="hover:underline">Home</a></li>
+            <li><a href="about.html" class="hover:underline">About</a></li>
+            <li><a href="shop.php" class="hover:underline">Shop</a></li>
+            <li><a href="contact.php" class="hover:underline">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Shop Section -->
+    <section class="p-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <?php foreach ($products as $product): ?>
+            <div class="bg-gray-900 p-4 rounded-xl card-hover">
+                <img src="<?php echo $product['image']; ?>" alt="<?php echo $product['name']; ?>" class="rounded-t-xl product-image mx-auto">
+                <div class="p-4">
+                    <h2 class="text-xl font-bold"><?php echo $product['name']; ?></h2>
+                    <p class="mt-2 text-gray-400"><?php echo $product['description']; ?></p>
+                    <button class="mt-4 bg-gray-800 text-white py-2 px-4 rounded hover:bg-gray-700">View Details</button>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 p-4 text-center">
+        <p class="text-gray-400">&copy; 2025 Christophryoung Customs. All rights reserved.</p>
+    </footer>
+</body>
+</html>
+
+### `contact.php`
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Christophryoung Customs</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-black text-white">
+    <!-- Navbar -->
+    <nav class="flex items-center justify-between p-4">
+        <div class="text-xl font-bold">Christophryoung Customs</div>
+        <ul class="flex space-x-6">
+            <li><a href="index.html" class="hover:underline">Home</a></li>
+            <li><a href="about.html" class="hover:underline">About</a></li>
+            <li><a href="shop.php" class="hover:underline">Shop</a></li>
+            <li><a href="contact.php" class="hover:underline">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Contact Section -->
+    <section class="py-20 px-10">
+        <h1 class="text-4xl font-bold text-center">Contact Us</h1>
+        <form class="mt-8 max-w-lg mx-auto bg-gray-800 p-6 rounded-xl" action="contact_handler.php" method="POST">
+            <div class="mb-4">
+                <label for="name" class="block text-gray-400">Name</label>
+                <input type="text" name="name" id="name" class="w-full p-2 rounded bg-gray-700 text-white">
+            </div>
+            <div class="mb-4">
+                <label for="email" class="block text-gray-400">Email</label>
+                <input type="email" name="email" id="email" class="w-full p-2 rounded bg-gray-700 text-white">
+            </div>
+            <div class="mb-4">
+                <label for="message" class="block text-gray-400">Message</label>
+                <textarea name="message" id="message" rows="5" class="w-full p-2 rounded bg-gray-700 text-white"></textarea>
+            </div>
+            <button type="submit" class="bg-gray-800 text-white py-2 px-4 rounded hover:bg-gray-700">Send</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 p-4 text-center">
+        <p class="text-gray-400">&copy; 2025 Christophryoung Customs. All rights reserved.</p>
+    </footer>
+</body>
+</html>
+
